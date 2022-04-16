@@ -34,6 +34,7 @@ set(OMPL_DEMO_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/ompl/demos"
     CACHE STRING "Relative path to directory where demos will be installed")
 
 include_directories("${OMPL_INCLUDE_DIRS}")
+find_path(BOOST_ROOT NAMES boost/version.hpp HINTS "D:/project/boost_1_79_0/boost_1_79_0")
 
 if(MSVC)
     add_definitions(-DBOOST_ALL_NO_LIB)
@@ -49,7 +50,7 @@ set_package_properties(Boost PROPERTIES
     PURPOSE "Used throughout OMPL for data serialization, graphs, etc.")
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_NO_BOOST_CMAKE ON)
-find_package(Boost 1.58 QUIET REQUIRED COMPONENTS serialization filesystem system program_options)
+find_package(Boost QUIET REQUIRED COMPONENTS serialization filesystem system program_options)
 include_directories(SYSTEM ${Boost_INCLUDE_DIR})
 
 # Add support in Boost::Python for std::shared_ptr
@@ -178,8 +179,8 @@ find_program(R_EXEC R)
 
 add_subdirectory(src)
 add_subdirectory(py-bindings)
-add_subdirectory(tests)
-add_subdirectory(demos)
+#add_subdirectory(tests)
+#add_subdirectory(demos)
 add_subdirectory(scripts)
 add_subdirectory(doc)
 

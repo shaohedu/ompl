@@ -11,3 +11,5 @@ lib/
 py-bindings/ompl/app/
 py-bindings/ompl/bindings_generator.py
 !py-bindings/ompl/bindings_generator.py.in
+install/
+.vs/
